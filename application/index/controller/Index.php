@@ -1,10 +1,37 @@
 <?php
+/*
+ * Copyright (C) 1996-2016 YONGF Inc.All Rights Reserved.
+ * Scott Wang blog.54yongf.com | blog.csdn.net/yongf2014
+ * 文件名：Index.php
+ * 描述：
+ *
+ * 修改历史
+ * 版本号    作者                     日期                    简要描述
+ *  1.0         Scott Wang         16-10-1             新增：Create
+ */
+
 namespace app\index\controller;
 
-class Index
+use think\Config;
+use think\Controller;
+
+/**
+ * 导航首页
+ *
+ * @author      Scott Wang
+ * @version     1.0, 16-10-1
+ * @since         LaoMaWeb 1.0
+ */
+class Index extends Controller
 {
+    /**
+     * 渲染导航首页
+     *
+     * @return mixed
+     */
     public function index()
     {
-        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
+        $this->assign(Config::get('view_replace_str'));
+        return $this->fetch();
     }
 }
